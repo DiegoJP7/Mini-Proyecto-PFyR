@@ -79,3 +79,5 @@ calcError(integral(0, 1, f4), 1.71828)
 calcError(integral(2, 3, f5), 0.828427)
 calcError(integral(0, 1, f6), 0.785398)
 
+//Simpson Compuesta
+
