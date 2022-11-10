@@ -80,12 +80,14 @@ calcError(integral(2, 3, f5), 0.828427)
 calcError(integral(0, 1, f6), 0.785398)
 
 //Simpson 1/3 Compuesta
-def integralComp(a: Int, b: Int, n: Int, f: Double => Double): Double = {
-val h=((b-a)/n)
+  def integralComp(a: Int, b: Int, n: Int, fp: Double => Double): Double = {
+  val h=(b-a)/n
   val xj =(j:Double)=>a+(j*h)
-  val j=1.0
-  val func = (j:Double)=> f(xj(2*j-2))+4*f(xj(2*j-1))+f(xj(2*j))
-  integralComp(3,5,100,func)
+  val func = (j:Double)=> fp(xj(2*j-2))+4*fp(xj(2*j-1))+fp(xj(2*j))
+  //Agregacion de la aproximacion de la manera correcta
+  //Rango  n/2
+  (1 to n/2).map(func(_))(h/3)
+  integralComp(3,5,50,fp)
 }
 
 
