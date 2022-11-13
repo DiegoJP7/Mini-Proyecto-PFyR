@@ -63,8 +63,6 @@ def integral6(a: Int, b: Int, f: Double => Double) = {
   (b - a) * ((f(a) + (f(x) * 4) + f(b)) / 6)
 }
 integral(0, 1, f6)
-
-
 //Diferencias/errores
 
 //Ejer1
@@ -81,14 +79,17 @@ calcError(integral(0, 1, f6), 0.785398)
 
 //Simpson 1/3 Compuesta
   def integralComp(a: Int, b: Int, n: Int, f: Double => Double): Double = {
-    val h=(b-a)/n
+    val h=(b-a)/(n*1.0)
     val xj =(j:Double)=>a+(j*h)
     val func = (j:Double)=> f(xj(2*j-2))+4*f(xj(2*j-1))+f(xj(2*j))
   //Agregacion de la aproximacion de la manera correcta
   //Rango  n/2
-    (1 to 2).map(func(_))(h/3)
+    (1 to n/2).map(func(_)).sum*(h/3)
 }
-integralComp(3,5,2,f)
-integralComp(0,2,2,f1)
-integralComp(-1,1,2,f2)
+integralComp(3,5,10,f)
+integralComp(0,2,10,f1)
+integralComp(-1,1,10,f2)
+
+//
+
 
