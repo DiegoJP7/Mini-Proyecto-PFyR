@@ -41,7 +41,7 @@ def integral3(a: Int, b: Int, f: Double => Double) = {
 integral(1, 2, f3)
 
 //ejer5
-val f4 = (x: Double) => (math.E + math.pow(x, 2))
+val f4 = (x: Double) => (math.pow(math.E, x))
 def integral4(a: Int, b: Int, f: Double => Double) = {
   val x = (a + b) / 2.0
   (b - a) * ((f(a) + (f(x) * 4) + f(b)) / 6)
@@ -67,7 +67,7 @@ integral(0, 1, f6)
 
 //Ejer1
 def calcError(valorOb: Double, valorAbs: Double) = {
-  (valorAbs - valorOb).abs
+  (valorOb-valorAbs).abs
 }
 calcError(integral(3, 5, f), 7.33)
 calcError(integral(0, 2, f1), 8.0)
@@ -89,7 +89,32 @@ calcError(integral(0, 1, f6), 0.785398)
 integralComp(3,5,10,f)
 integralComp(0,2,10,f1)
 integralComp(-1,1,10,f2)
+integralComp(1, 2, 10,f3)
+integralComp(0, 1,10, f4)
+integralComp(2, 3,10, f5)
+integralComp(0, 1,10, f6)
 
-//
+//Calculo de error
+calcError(integralComp(3,5,10,f), 7.33)
+calcError(integralComp(0,2,10,f1), 8.0)
+calcError(integralComp(-1,1,10,f2), 3.333)
+calcError(integralComp(1, 2, 10,f3), 1.09861)
+calcError(integralComp(0, 1,10, f4), 1.71828)
+calcError(integralComp(2, 3,10, f5), 0.828427)
+calcError(integralComp(0, 1,10, f6), 0.785398)
+//Simpson 1/3 Extendida
+def integralExt(a:Int, b:Int, f:Double=>Double):Double ={
+  val i=1
+  val j=1
+  val h = (b - a) / (n * 1.0)
+  val n = 2 * (b - a)
+  val fun=(f(a)+4*f(a+i*h)+2*f(a+j*h)+f(b))
+  //Rango i
+  (1 to n-1).map(fun(_)).sum*(h/3)
+  //Rango j
+  (2 to n-2).map(fun(_)).sum*(h/3)
+
+}
+
 
 
