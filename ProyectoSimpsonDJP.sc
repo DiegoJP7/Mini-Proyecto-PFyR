@@ -108,6 +108,7 @@ def integralExt(a:Int, b:Int, f:Double=>Double) ={
   val j=2
   val n = 2 * (b - a)
   val h = (b - a) / (n * 1.0)
+  //Correcion de error
   val functionj=(j:Double)=> f(a+(j*h))
   val functioni=(i:Double)=> (f(a+(i*h)))
   val fun= f(a)+(4* (1 until n by 2).map(functionj(_)).sum)+(2*(2 to n-2 by 2).map(functioni(_)).sum)+f(b)
