@@ -103,15 +103,15 @@ calcError(integralComp(0, 1,10, f4), 1.71828)
 calcError(integralComp(2, 3,10, f5), 0.828427)
 calcError(integralComp(0, 1,10, f6), 0.785398)
 //Simpson 1/3 Extendida
-def integralExt(a:Int, b:Int, f:Double=>Double):Double ={
+def integralExt(a:Int, b:Int, f:Double=>Double) ={
   val i=1
   val j=2
   val n = 2 * (b - a)
   val h = (b - a) / (n * 1.0)
-  val function=(n:Double)=>(a+n*h)
-  val fun=(f(a)+4*(1 to n-1 by 2).map(function(_)).sum+2*(2 to n-2 by 2).map(function(_)).sum+f(b))
-  (fun*h)/3
-
+  val functionj=(j:Double)=> f(a+(j*h))
+  val functioni=(i:Double)=> (f(a+(i*h)))
+  val fun= f(a)+(4* (1 until n by 2).map(functionj(_)).sum)+(2*(2 to n-2 by 2).map(functioni(_)).sum)+f(b)
+  (h/3)*fun
 }
 integralExt(3,5,f)
 integralExt(0, 2, f1)
