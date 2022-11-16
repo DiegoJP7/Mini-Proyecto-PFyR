@@ -27,18 +27,20 @@ integral(2, 3, f5)
 val f6 = (x: Double) => (1 / (1 + math.pow(x, 2)))
 integral(0, 1, f6)
 
-println("                        Diferencias/errores")
+
 
 def calcError(valorOb: Double, valorAbs: Double) = {
   (valorOb-valorAbs).abs
 }
-calcError(integral(3, 5, f), 7.33)
-calcError(integral(0, 2, f1), 8.0)
-calcError(integral(-1, 1, f2), 3.333)
-calcError(integral(1, 2, f3), 1.09861)
-calcError(integral(0, 1, f4), 1.71828)
-calcError(integral(2, 3, f5), 0.828427)
-calcError(integral(0, 1, f6), 0.785398)
+println("                        Diferencias/errores")
+
+println("Funcion 1:   "+calcError(integral(3, 5, f), 7.33))
+println("Funcion 2:   "+calcError(integral(0, 2, f1), 8.0))
+println("Funcion 3:   "+calcError(integral(-1, 1, f2), 3.333))
+println("Funcion 4:   "+calcError(integral(1, 2, f3), 1.09861))
+println("Funcion 5:   "+calcError(integral(0, 1, f4), 1.71828))
+println("Funcion 6:   "+calcError(integral(2, 3, f5), 0.828427))
+println("Funcion 7:   "+calcError(integral(0, 1, f6), 0.785398))
 
 println("---------------------------------------------------------------------------------")
 println("                        Simpson 1/3 Compuesta")
@@ -52,23 +54,24 @@ println("                        Simpson 1/3 Compuesta")
     (1 to n/2).map(func(_)).sum*(h/3)
 }
 println("                        Simpson 1/3 Compuesta Resultado")
-integralComp(3,5,10,f)
-integralComp(0,2,10,f1)
-integralComp(-1,1,10,f2)
-integralComp(1, 2, 10,f3)
-integralComp(0, 1,10, f4)
-integralComp(2, 3,10, f5)
-integralComp(0, 1,10, f6)
 
-println("                        Calculo de error")
+println("Funcion 1:   "+integralComp(3,5,100,f))
+println("Funcion 2:   "+integralComp(0,2,100,f1))
+println("Funcion 3:   "+integralComp(-1,1,1000,f2))
+println("Funcion 4:   "+integralComp(1, 2, 100,f3))
+println("Funcion 5:   "+integralComp(0, 1,100, f4))
+println("Funcion 6:   "+integralComp(2, 3,100, f5))
+println("Funcion 7:   "+integralComp(0, 1,100, f6))
+
+println("                        Simpson 1/3 Compuesta Calculo de error ")
 //Calculo de error
-calcError(integralComp(3,5,10,f), 7.33)
-calcError(integralComp(0,2,10,f1), 8.0)
-calcError(integralComp(-1,1,10,f2), 3.333)
-calcError(integralComp(1, 2, 10,f3), 1.09861)
-calcError(integralComp(0, 1,10, f4), 1.71828)
-calcError(integralComp(2, 3,10, f5), 0.828427)
-calcError(integralComp(0, 1,10, f6), 0.785398)
+println("Funcion 1:   "+calcError(integralComp(3,5,100,f), 7.33))
+println("Funcion 2:   "+calcError(integralComp(0,2,100,f1), 8.0))
+println("Funcion 3:   "+calcError(integralComp(-1,1,1000,f2), 3.333))
+println("Funcion 4:   "+calcError(integralComp(1, 2, 100,f3), 1.09861))
+println("Funcion 5:   "+calcError(integralComp(0, 1,100, f4), 1.71828))
+println("Funcion 6:   "+calcError(integralComp(2, 3,100, f5), 0.828427))
+println("Funcion 7:   "+calcError(integralComp(0, 1,100, f6), 0.785398))
 
 println("---------------------------------------------------------------------------------")
 //Simpson 1/3 Extendida
@@ -85,22 +88,22 @@ def integralExt(a:Int, b:Int, f:Double=>Double) ={
   (h/3)*fun
 }
 println("                        Simpson 1/3 Extendida Resultado")
-integralExt(3,5,f)
-integralExt(0, 2, f1)
-integralExt(-1,1,f2)
-integralExt(1, 2,f3)
-integralExt(0, 1,f4)
-integralExt(2, 3,f5)
-integralExt(0, 1,f6)
+println("Funcion 1:   "+integralExt(3,5,f))
+println("Funcion 2:   "+integralExt(0, 2, f1))
+println("Funcion 3:   "+integralExt(-1,1,f2))
+println("Funcion 4:   "+integralExt(1, 2,f3))
+println("Funcion 5:   "+integralExt(0, 1,f4))
+println("Funcion 6:   "+integralExt(2, 3,f5))
+println("Funcion 7:   "+integralExt(0, 1,f6))
 
-println("                        Calculo error")
-calcError(integralExt(3, 5, f), 7.33)
-calcError(integralExt(0, 2, f1), 8.0)
-calcError(integralExt(-1, 1, f2), 3.333)
-calcError(integralExt(1, 2, f3), 1.09861)
-calcError(integralExt(0, 1, f4), 1.71828)
-calcError(integralExt(2, 3, f5), 0.828427)
-calcError(integralExt(0, 1, f6), 0.785398)
+println("                        Calculo error Simpson 1/3 Extendida")
+println("Funcion 1:   "+calcError(integralExt(3, 5, f), 7.33))
+println("Funcion 2:   "+calcError(integralExt(0, 2, f1), 8.0))
+println("Funcion 3:   "+calcError(integralExt(-1, 1, f2), 3.333))
+println("Funcion 4:   "+calcError(integralExt(1, 2, f3), 1.09861))
+println("Funcion 5:   "+calcError(integralExt(0, 1, f4), 1.71828))
+println("Funcion 6:   "+calcError(integralExt(2, 3, f5), 0.828427))
+println("Funcion 7:   "+calcError(integralExt(0, 1, f6), 0.785398))
 
 
 
