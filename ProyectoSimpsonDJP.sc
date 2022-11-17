@@ -7,26 +7,28 @@ def integral(a: Int, b: Int, f: Double => Double) = {
 }
 //Ejer1
 val f = (x: Double) => (-math.pow(x, 2) + 8 * x - 12)
-integral(3, 5, f)
 //Ejer2
 val f1 = (x: Double) => (3 * math.pow(x, 2))
-integral(0, 2, f1)
 //Ejer3
 val f2 = (x: Double) => (x + (2 * math.pow(x, 2)) - (math.pow(x, 3)) + (math.pow(x, 4) * 5))
-integral(-1, 1, f2)
 //Ejer4
 val f3 = (x: Double) => (((2 * x + 1) / (math.pow(x, 2) + x)))
-integral(1, 2, f3)
 //ejer5
 val f4 = (x: Double) => (math.pow(math.E, x))
-integral(0, 1, f4)
 //Ejer6
 val f5 = (x: Double) => (1 / (math.sqrt(x - 1)))
-integral(2, 3, f5)
 //Ejer7
 val f6 = (x: Double) => (1 / (1 + math.pow(x, 2)))
-integral(0, 1, f6)
 
+
+println("                        Simpson 1/3 Resultado")
+println("Funcion 1:   "+integral(3, 5, f))
+println("Funcion 2:   "+integral(0, 2, f1))
+println("Funcion 3:   "+integral(-1, 1, f2))
+println("Funcion 4:   "+integral(1, 2, f3))
+println("Funcion 5:   "+integral(0, 1, f4))
+println("Funcion 6:   "+integral(2, 3, f5))
+println("Funcion 7:   "+integral(0, 1, f6))
 
 
 def calcError(valorOb: Double, valorAbs: Double) = {
